@@ -7,6 +7,9 @@ Building on our previous work, **[FCN-LectureNet](https://ieeexplore.ieee.org/do
 
 <p align="center">
   <img src="bin_res.png" width="500">
+</p>
+
+<p align="center">
   <em>Examples of Lect-Former predictions. Left: input images. Right: extracted foreground content.</em>
 </p>
 
