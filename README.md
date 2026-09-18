@@ -14,8 +14,16 @@ Building on our previous work, **[FCN-LectureNet](https://ieeexplore.ieee.org/do
 </p>
 
 ## Dataset
-
 The LectureMath Ext (2026) Dataset can be downloaded from here: [LectureMath Ext (2026) Dataset](https://www.dropbox.com/scl/fi/6srviqnl5iuumzew88fqr/LectureMath_Ext_bin_annotations.zip?rlkey=82yxh4u8npstbixhyr4n6l8m0&dl=0)
+
+## Weights
+Pretrained and trained model weights for **Lect-Former** and **FCN-LectureNet baseline** can be found [here](https://www.dropbox.com/scl/fo/fx1k614nz0rbn0s1t4nsb/AJsdTiV1jaqQqbf_HnTv870?rlkey=8demvn6anx51xlu574lkr817d&dl=0).
+
+- `*_PRETRAINED_Stage1.dat`: Complete model weights after Stage 1 reconstruction pretraining.
+- `*.encoder.dat`, `*.decoder.dat`, `*.skips.dat`: Individually saved Stage 1 component weights for component-wise model initialization.
+(`*.skips.dat` applies to Lect-Former.)
+- `*_PRETRAINED_Stage2.dat`: Complete model weights after Stage 2 text-deletion pretraining.
+- `*_TRAINED_Stage3.dat`: Final model weights after LectureMath fine-tuning, used for inference and evaluation.
 
 > [!NOTE]
 > UPDATE (09/09/2026): 
