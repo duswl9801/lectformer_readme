@@ -10,7 +10,7 @@ Building on our previous work, **[FCN-LectureNet](https://ieeexplore.ieee.org/do
 </p>
 
 <p align="center">
-  <em>Examples of Lect-Former predictions. Left: input images. Right: extracted foreground content.</em>
+  <em>Examples of Lect-Former binarization predictions. Left: input images. Right: extracted foreground content.</em>
 </p>
 
 ## Dataset
