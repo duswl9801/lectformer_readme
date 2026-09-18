@@ -10,11 +10,11 @@ Building on our previous work, **[FCN-LectureNet](https://ieeexplore.ieee.org/do
   <em>Examples of Lect-Former predictions. Left: input images. Right: extracted foreground content.</em>
 </p>
 
-### Dataset
+## Dataset
 
 The LectureMath Ext (2026) Dataset can be downloaded from here: [LectureMath Ext (2026) Dataset](https://www.dropbox.com/scl/fi/6srviqnl5iuumzew88fqr/LectureMath_Ext_bin_annotations.zip?rlkey=82yxh4u8npstbixhyr4n6l8m0&dl=0)
 
-### Updates
+
 > [!NOTE]
 >UPDATE (09/09/2026): 
 >  - Code used for training is now available.
@@ -25,7 +25,7 @@ The LectureMath Ext (2026) Dataset can be downloaded from here: [LectureMath Ext
 >  - Code will be available soon.
 
 
-## Key Features & Methodology
+# Key Features & Methodology
 
 <p align="center">
   <img src="lectformer_arch.png" width="75%">
@@ -36,7 +36,11 @@ The LectureMath Ext (2026) Dataset can be downloaded from here: [LectureMath Ext
 - **Three-Branch Prediction:** The network uses one main branch for pixel-level text segmentation and two auxiliary branches for region-level text detection and text-free background estimation, providing additional guidance for foreground extraction.
 
 <p align="center">
-  <img src="training_protocol.png" width="75%">
+  <img src="bin_res.png" width="500">
+</p>
+
+<p align="center">
+  <em>Examples of Lect-Former predictions. Left: input images. Right: extracted foreground content.</em>
 </p>
 
 - **Three-Stage Training Protocol:** The progressive training strategy helps the model learn text-aware representations before fine-tuning on the target lecture-video domain, where only limited handwritten lecture data is available.
@@ -55,7 +59,7 @@ These metrics evaluate both pixel-level foreground accuracy and the structural q
 > Additional ablation studies on pretraining objectives, localized self-attention implementations, and auxiliary-branch fusion strategies are reported in the paper. 
 
 
-# Usage Guide
+# Usage Guide =======WORKING NOW
 
 ## Installation
 Clone the repository:
@@ -65,7 +69,7 @@ cd LectFormer_DAS2026
 ```
 Create and activate a virtual environment.
 
-Install the required dependencies:
+Install the required dependencies: =======MAKE REQUIREMENTS FILE
 ```bash
 pip install -r requirements.txt
 ```
@@ -74,8 +78,7 @@ pip install -r requirements.txt
 
 ## Dataset Preparation
 
-[MS-COCO 2017](), [LSVT](), [LectureMath Ext](#dataset)
-[TextSeg]() / [Total-Text]()
+[MS-COCO 2017](), [LSVT](), [LectureMath Ext](#dataset), [TextSeg]() / [Total-Text]()
 
 Download the required datasets and update their paths in the corresponding configuration file under `configs/`.
 
@@ -115,12 +118,12 @@ Final LectureMath evaluation uses the H-DIBCO 2016 binarization metrics describe
 The `configs/` folder contains JSON configuration files for **Lect-Former** and the **FCN-LectureNet baseline** experiments.
 
 The main configuration sections are:
-- `General`: Device and output directory settings.
-- `Network`: Model architecture, prediction heads, localized self-attention skip connections, normalization, and activation settings.
-- `Evaluation`: Output settings for saved evaluation predictions.
-- `Training`: Stage 3 LectureMath fine-tuning, including data augmentation, optimization, sampling, checkpoints, and pretrained model paths.
-- `Ablation`: Dataset, training, and evaluation settings used for TextSeg/Total-Text ablation experiments.
-- `Pretraining`: Stage 1 reconstruction and Stage 2 text-deletion pretraining settings.
+- **`General`**: Device and output directory settings.
+- **`Network`**: Model architecture, prediction heads, localized self-attention skip connections, normalization, and activation settings.
+- **`Evaluation`**: Output settings for saved evaluation predictions.
+- **`Training`**: Stage 3 LectureMath fine-tuning, including data augmentation, optimization, sampling, checkpoints, and pretrained model paths.
+- **`Ablation`**: Dataset, training, and evaluation settings used for TextSeg/Total-Text ablation experiments.
+- **`Pretraining`**: Stage 1 reconstruction and Stage 2 text-deletion pretraining settings.
 
 Before running the scripts, update the **device**, **dataset paths**, **output paths**, and **pretrained model paths** according to your local environment. 
 
