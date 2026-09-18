@@ -39,11 +39,7 @@ The LectureMath Ext (2026) Dataset can be downloaded from here: [LectureMath Ext
 - **Three-Branch Prediction:** The network uses one main branch for pixel-level text segmentation and two auxiliary branches for region-level text detection and text-free background estimation, providing additional guidance for foreground extraction.
 
 <p align="center">
-  <img src="bin_res.png" width="500">
-</p>
-
-<p align="center">
-  <em>Examples of Lect-Former predictions. Left: input images. Right: extracted foreground content.</em>
+  <img src="training_protocol.png" width="75%">
 </p>
 
 - **Three-Stage Training Protocol:** The progressive training strategy helps the model learn text-aware representations before fine-tuning on the target lecture-video domain, where only limited handwritten lecture data is available.
@@ -65,14 +61,14 @@ These metrics evaluate both pixel-level foreground accuracy and the structural q
 # Usage Guide =======WORKING NOW
 
 ## Installation
-Clone the repository:
+1. Clone the repository:
 ```bash
 git clone https://github.com/kdavila/LectFormer_DAS2026.git
 cd LectFormer_DAS2026
 ```
-Create and activate a virtual environment.
+2. Create and activate a virtual environment.
 
-Install the required dependencies: =======MAKE REQUIREMENTS FILE
+3. Install the required dependencies: =======MAKE REQUIREMENTS FILE
 ```bash
 pip install -r requirements.txt
 ```
