@@ -107,6 +107,7 @@ These metrics evaluate both pixel-level foreground accuracy and the structural q
     ```bash
     pip install -r requirements.txt
     ```
+````
 
 > [!NOTE]
 > A CUDA-capable NVIDIA GPU is strongly recommended for training and evaluation.
