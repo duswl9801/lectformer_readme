@@ -60,20 +60,45 @@ These metrics evaluate both pixel-level foreground accuracy and the structural q
 
 > Additional ablation studies on pretraining objectives, localized self-attention implementations, and auxiliary-branch fusion strategies are reported in the paper. 
 
-
-# Usage Guide =======WORKING NOW
+# Usage Guide
 
 ## Installation
+
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/kdavila/LectFormer_DAS2026.git
 cd LectFormer_DAS2026
 ```
-2. Create and activate a virtual environment.
 
-3. Install the required dependencies: =======MAKE REQUIREMENTS FILE
+2. Create and activate a virtual environment.
+Python 3.9 or later is recommended.
+
+```bash
+python -m venv .venv
+```
+
+    - Windows: 
+    ```bash
+    .venv\Scripts\activate
+    ```
+    - Linux/Max:
+    ```bash
+    source .venv/bin/activate
+    ```
+    
+3. Install PyTorch.
+The following configuration was used and tested for this project:
+
+```bash
+pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu126
+```
+For other CUDA configurations, install the compatible PyTorch version using the official PyTorch installation instructions.
+
+4. Install the remaining dependencies.
 ```bash
 pip install -r requirements.txt
+
 ```
 > [!NOTE]
 > A CUDA-capable NVIDIA GPU is strongly recommended for training and evaluation.
