@@ -72,22 +72,24 @@ cd LectFormer_DAS2026
 ```
 
 2. Create and activate a virtual environment.
+
 Python 3.9 or later is recommended.
 
 ```bash
 python -m venv .venv
 ```
 
-    - Windows: 
+  - Windows: 
     ```bash
     .venv\Scripts\activate
     ```
-    - Linux/Max:
+  - Linux/Max:
     ```bash
     source .venv/bin/activate
     ```
     
 3. Install PyTorch.
+
 The following configuration was used and tested for this project:
 
 ```bash
