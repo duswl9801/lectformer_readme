@@ -62,46 +62,52 @@ These metrics evaluate both pixel-level foreground accuracy and the structural q
 
 # Usage Guide
 
+````md
 ## Installation
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/kdavila/LectFormer_DAS2026.git
-cd LectFormer_DAS2026
-```
+    ```bash
+    git clone https://github.com/kdavila/LectFormer_DAS2026.git
+    cd LectFormer_DAS2026
+    ```
 
 2. Create and activate a virtual environment.
 
-Python 3.9 or later is recommended.
+    Python 3.9 or later is recommended.
 
-```bash
-python -m venv .venv
-```
+    ```bash
+    python -m venv .venv
+    ```
 
-  - Windows: 
-    ```bash
-    .venv\Scripts\activate
-    ```
-  - Linux/Max:
-    ```bash
-    source .venv/bin/activate
-    ```
-    
+    - **Windows:**
+
+        ```bash
+        .venv\Scripts\activate
+        ```
+
+    - **Linux/macOS:**
+
+        ```bash
+        source .venv/bin/activate
+        ```
+
 3. Install PyTorch.
 
-The following configuration was used and tested for this project:
+    The following configuration was used and tested for this project:
 
-```bash
-pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu126
-```
-For other CUDA configurations, install the compatible PyTorch version using the official PyTorch installation instructions.
+    ```bash
+    pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu126
+    ```
+
+    For other CUDA configurations, install the compatible PyTorch version using the official PyTorch installation instructions.
 
 4. Install the remaining dependencies.
-```bash
-pip install -r requirements.txt
 
-```
+    ```bash
+    pip install -r requirements.txt
+    ```
+
 > [!NOTE]
 > A CUDA-capable NVIDIA GPU is strongly recommended for training and evaluation.
 
