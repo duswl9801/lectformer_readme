@@ -114,11 +114,7 @@ These metrics evaluate both pixel-level foreground accuracy and the structural q
 
 [MS-COCO 2017](), [LSVT](), [LectureMath Ext](#dataset), [TextSeg]() / [Total-Text]()
 
-Download the required datasets and update their paths in the corresponding configuration file under `configs/`.
-
-```bash
-prep codes
-```
+Download the required datasets and place them in the corresponding folders under `data/`. See the `info.txt` file in each folder for details.
 
 ## Traning
 Lect-Former is trained progressively through three stages:
