@@ -112,37 +112,143 @@ These metrics evaluate both pixel-level foreground accuracy and the structural q
 
 ## Dataset Preparation
 
-[MS-COCO 2017](), [LSVT](), [LectureMath Ext](#dataset), [TextSeg]() / [Total-Text]()
+[MS-COCO 2017](https://cocodataset.org/#download), [LSVT](https://rrc.cvc.uab.es/?ch=16&com=downloads), [LectureMath Ext](#dataset), [TextSeg](https://github.com/SHI-Labs/Rethinking-Text-Segmentation), [Total-Text](https://github.com/cs-chan/Total-Text-Dataset)
+(LSVT registration required, TextSeg requires an email request)
 
 Download the required datasets and place them in the corresponding folders under `data/`. See the `info.txt` file in each folder for details.
 
-## Traning
+### Ground-Truth Mask Preparation
+```bash
+cd lectformer2026
+```
+
+    1. LSVT
+    
+    Generate binary text masks from the LSVT annotations.
+
+    ```bash
+    python prep_LSVT_00_prepare_binary_text_masks.py <LSVT_label> <image_folder> <mask_folder>
+    ```
+    
+    Split the images and masks into training and validation sets.
+    
+    ```bash
+    python prep_LSVT_01_split_binary_text_masks.py <image_folder> <mask_folder> <validation_ratio> <train_image_folder> <train_mask_folder> <valid_image_folder> <valid_mask_folder>
+    ```
+
+    2. TextSeg
+
+    Convert the TextSeg semantic labels into binary text masks.
+
+    ```bash
+    python prep_TextSeg_01_from_semantic_to_bin.py <semantic_label_folder> <binary_label_folder>
+    ```
+    
+    Split the images and binary masks using the official TextSeg split file.
+    
+    ```bash
+    python prep_TextSeg_02_split.py <image_folder> <binary_label_folder> <split_json> <output_folder>
+    ```
+    
+    3. TOTALTEXT
+
+    Generate binary text masks from the Total-Text annotations.
+
+    ```bash
+    python prep_TOTALTEXT_01_ds_ninja_gen_text_masks.py <totaltext_root_folder>
+    ```
+    
+    Split the training set into training and validation subsets.
+    
+    ```bash
+    python prep_TOTALTEXT_02_split_valid.py <totaltext_train_folder>
+    ```
+
+### Expected Data Structure
+```
+data/
+│
+├── COCO2017/
+│   ├── train/
+│   ├── valid/
+│   └── debug/
+│
+├── ICDAR2019_LSVT/
+│   ├── sub_train_images/
+│   ├── sub_train_masks/
+│   ├── sub_valid_images/
+│   ├── sub_valid_masks/
+│   └── debug_images/
+│
+├── lecturemath_v2/
+│   ├── videos/
+│   ├── debug_images/
+│   └── db_LectureMath.xml
+│
+├── TextSeg/
+│   └── splits/
+│       ├── train/
+│       │   ├── img/
+│       │   └── masks/
+│       │
+│       ├── val/
+│       │   ├── img/
+│       │   └── masks/
+│       │
+│       └── debug_images/
+│
+└── total-text/
+    ├── train_sub_train/
+    │   ├── img/
+    │   └── masks/
+    │
+    ├── train_sub_valid/
+    │   ├── img/
+    │   └── masks/
+    │
+    └── debug_images/
+```
+
+## Training
+
 Lect-Former is trained progressively through three stages:
 
 ### Stage 1
-Pretrains reconstruction using MS-COCO 2017.
+
+Pretrains the Lect-Former autoencoder on MS-COCO 2017 for general image reconstruction.
+
 ```bash
-python <stage1_script.py> <config>
+python train_00_pretrain_AE_reconstruction.py <config>
 ```
 
 ### Stage 2
+
 Loads the Stage 1 weights and jointly trains the text-detection, background-estimation, and binarization branches using LSVT.
+
 ```bash
-python <stage2_script.py> <config>
+python train_01_pretrain_text_detector.py <config>
 ```
 
 ### Stage 3
+
 Loads the pretrained model and fine-tunes the complete network on LectureMath Ext.
+
 ```bash
-python <stage3_script.py> <config>
+python train_02_train_binarizer.py <config>
 ```
 
+> Additional training scripts for the baseline models and ablation experiments are provided in the same directory.
+
 ## Evaluation
-Run the evaluation script using the trained Stage 3 model:
+
+Evaluate the final model produced by each configuration on the LectureMath Ext test set:
+
 ```bash
-EVALUATION CODE
+python eval_keyframe_bin.py <config> <model> <dataset_name>
 ```
-Final LectureMath evaluation uses the H-DIBCO 2016 binarization metrics described above.
+The reported results use the H-DIBCO document image binarization metrics: PSNR, DRD, standard Recall/Precision/F1, and pseudo Recall/Precision/F1.
+
+The reported results are averaged over five independently trained models.
 
 # Configuration
 The `configs/` folder contains JSON configuration files for **Lect-Former** and the **FCN-LectureNet baseline** experiments.
