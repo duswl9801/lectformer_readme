@@ -122,7 +122,7 @@ Download the required datasets and place them in the corresponding folders under
 cd lectformer2026
 ```
 
-    1. LSVT
+1. LSVT
     
     Generate binary text masks from the LSVT annotations.
 
@@ -136,7 +136,7 @@ cd lectformer2026
     python prep_LSVT_01_split_binary_text_masks.py <image_folder> <mask_folder> <validation_ratio> <train_image_folder> <train_mask_folder> <valid_image_folder> <valid_mask_folder>
     ```
 
-    2. TextSeg
+2. TextSeg
 
     Convert the TextSeg semantic labels into binary text masks.
 
@@ -150,7 +150,7 @@ cd lectformer2026
     python prep_TextSeg_02_split.py <image_folder> <binary_label_folder> <split_json> <output_folder>
     ```
     
-    3. TOTALTEXT
+3. TOTALTEXT
 
     Generate binary text masks from the Total-Text annotations.
 
