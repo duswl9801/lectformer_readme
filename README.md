@@ -31,7 +31,7 @@ Pretrained and trained model weights for **Lect-Former** and **FCN-LectureNet ba
 >  - Code used for evaluation is partially available.
 >  - Additional evaluation scripts, pretrained/trained weights and missing evaluation data will be made available soon.
 
-# Key Features & Methodology
+# ▸ Key Features & Methodology
 
 <p align="center">
   <img src="lectformer_arch.png" width="75%">
@@ -48,7 +48,7 @@ Pretrained and trained model weights for **Lect-Former** and **FCN-LectureNet ba
 - **Three-Stage Training Protocol:** The progressive training strategy helps the model learn text-aware representations before fine-tuning on the target lecture-video domain, where only limited handwritten lecture data is available.
 
 
-# Results & Metrics
+# ▸ Results & Metrics
 Final evaluation on the extended **LectureMath dataset** uses standard document-image binarization metrics from **[H-DIBCO](https://vc.ee.duth.gr/h-dibco2016/benchmark/?utm_source)**:
 
 These metrics evaluate both pixel-level foreground accuracy and the structural quality of the binarized handwritten-content output.
@@ -60,7 +60,7 @@ These metrics evaluate both pixel-level foreground accuracy and the structural q
 
 > Additional ablation studies on pretraining objectives, localized self-attention implementations, and auxiliary-branch fusion strategies are reported in the paper. 
 
-# Usage Guide
+# ▸ Usage Guide
 
 ## Installation
 
@@ -250,7 +250,7 @@ The reported results use the H-DIBCO document image binarization metrics: PSNR, 
 
 The reported results are averaged over five independently trained models.
 
-# Configuration
+# ▸ Configuration
 The `configs/` folder contains JSON configuration files for **Lect-Former** and the **FCN-LectureNet baseline** experiments.
 
 The main configuration sections are:
@@ -267,7 +267,7 @@ Before running the scripts, update the **device**, **dataset paths**, **output p
 > For reproducibility, the training crop size is set to **256 x 256**. In our experiments, larger crop sizes improved performance, but also increased GPU memory usage and training time.
 
 
-# Citation
+# ▸ Citation
 
 If you find this code or dataset work useful, please cite our paper:
 
