@@ -62,7 +62,7 @@ These metrics evaluate both pixel-level foreground accuracy and the structural q
 
 # ▸ Usage Guide
 
-## Installation
+## › Installation
 
 1. Clone the repository:
 
@@ -110,7 +110,7 @@ These metrics evaluate both pixel-level foreground accuracy and the structural q
 > [!NOTE]
 > A CUDA-capable NVIDIA GPU is strongly recommended for training and evaluation.
 
-## Dataset Preparation
+## › Dataset Preparation
 
 [MS-COCO 2017](https://cocodataset.org/#download), [LSVT](https://rrc.cvc.uab.es/?ch=16&com=downloads), [LectureMath Ext](#dataset), [TextSeg](https://github.com/SHI-Labs/Rethinking-Text-Segmentation), [Total-Text](https://github.com/cs-chan/Total-Text-Dataset)
 (LSVT registration required, TextSeg requires an email request)
@@ -209,7 +209,7 @@ data/
     └── debug_images/
 ```
 
-## Training
+## › Training
 
 Lect-Former is trained progressively through three stages:
 
@@ -239,7 +239,7 @@ python train_02_train_binarizer.py <config>
 
 > Additional training scripts for the baseline models and ablation experiments are provided in the same directory.
 
-## Evaluation
+## › Evaluation
 
 Evaluate the final model produced by each configuration on the LectureMath Ext test set:
 
