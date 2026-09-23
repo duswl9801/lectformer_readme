@@ -134,6 +134,8 @@ These metrics evaluate both pixel-level foreground accuracy and the structural q
 
 > [!CAUTION]
 > A CUDA-capable NVIDIA GPU is strongly recommended for training and evaluation.
+>
+> `torch.compile` is enabled by default. On Windows, compilation-related errors may occur depending on the local compiler/Triton setup. If needed, set `CompileModel` to `false` in the configuration file.
 
 ## › Dataset Preparation
 
