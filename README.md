@@ -30,7 +30,7 @@ Building on our previous work, **[FCN-LectureNet](https://ieeexplore.ieee.org/do
 
 - **Three-Stage Training Protocol:** The progressive training strategy helps the model learn text-aware representations before fine-tuning on the target lecture-video domain, where only limited handwritten lecture data is available.
 
-- - **Weak Label Generation:** Character-level pseudo-labels are generated from region-level text annotations, providing pixel-level supervision without manual segmentation labels.
+- **Weak Label Generation:** Character-level pseudo-labels are generated from region-level text annotations, providing pixel-level supervision without manual segmentation labels.
 
 <p align="center">
   <img src="weak_label_generation.png" width="80%">
