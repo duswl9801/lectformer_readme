@@ -150,7 +150,7 @@ Download the required datasets and place them in the corresponding folders under
 > `gt_4231`, `gt_10519`, `gt_11853`, `gt_12150`, `gt_15615`, `gt_16475`, `gt_21899`, `gt_24129`, `gt_25331`, `gt_26056`
 
 
-**LectureMath**: The LectureMath Ext (2026) Dataset can be downloaded from here: [LectureMath Ext (2026) Dataset](https://www.dropbox.com/scl/fi/6srviqnl5iuumzew88fqr/LectureMath_Ext_bin_annotations.zip?rlkey=82yxh4u8npstbixhyr4n6l8m0&dl=0)
+## **LectureMath**: The LectureMath Ext (2026) Dataset can be downloaded from here: [LectureMath Ext (2026) Dataset](https://www.dropbox.com/scl/fi/6srviqnl5iuumzew88fqr/LectureMath_Ext_bin_annotations.zip?rlkey=82yxh4u8npstbixhyr4n6l8m0&dl=0)
 
 Place this under the `outputs_lecformer2026/annotations`.
 
